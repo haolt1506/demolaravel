@@ -19,14 +19,14 @@
         @foreach ($dt as $product)
         <div class="card text-center">
             <div class="card-header">
-                <a style="font-size: 13px" href="{{$product->idDT}}.html">{{$product->tenDT}}</a>
+                <a style="font-size: 13px" href="{{$product{"slug"} }}.html">{{$product{"tenDT"} }}</a>
             </div>
             <div class="card-body">
-                <img style="height: 150px;" src="images/{{$product->urlHinh}}" alt="">
+                <img style="height: 150px;" src="images/{{$product{"urlHinh"} }}" alt="">
             </div>
             <div class="card-footer text-muted">
-                <del>{{ number_format($product->gia, 0, ",", ".") }} VNĐ</del> <br>
-                <span>{{ number_format($product->giaKM, 0, ",", ".") }} VNĐ</span>
+                <del>{{ number_format($product{"gia"}, 0, ",", ".") }} VNĐ</del> <br>
+                <span>{{ number_format($product{"giaKM"}, 0, ",", ".") }} VNĐ</span>
             </div>
         </div>
         @endforeach

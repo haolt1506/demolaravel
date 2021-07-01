@@ -1,5 +1,5 @@
 <?php
-use App\News;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,21 +13,13 @@ class DbLaravelNews extends Migration
      */
     public function up()
     {
-        Schema::create('nhasanxuat', function (Blueprint $table) {
-            $table->increments('idNSX');
-            $table->string('tenNSX');
-            $table->text('moTa');
-            $table->timestamps();
-        }); 
-        Schema::create('dienthoai', function (Blueprint $table) {
-            $table->increments('idDT');
-            $table->integer('idNSX');
-            $table->string('urlHinh');
-            $table->string('tenDT');
-            $table->integer('gia');
-            $table->integer('giaKM');
-            $table->text('moTa');
-            $table->timestamps();
+        
+        Schema::create('dienthoai', function ($collection) {
+            $collection->string('tenDT');
+            $collection->string('urlHinh');
+            $collection->integer('gia');
+            $collection->integer('giaKM');
+            $collection->text('moTa');
         });
     }
 
@@ -38,6 +30,6 @@ class DbLaravelNews extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhasanxuat');
+        Schema::dropIfExists('dienthoai');
     }
 }

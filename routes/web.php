@@ -20,5 +20,6 @@ Route::get('/hello', function () {
     return 'Hello World';
 });
 Route::get('/home', 'SiteNewsController@index');
-Route::get('/{id}.html', 'SiteNewsController@show');
+Route::get('/{slug}.html', 'SiteNewsController@show');
+
 

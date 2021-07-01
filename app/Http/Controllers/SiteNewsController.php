@@ -11,17 +11,18 @@ class SiteNewsController extends Controller
 {
     public function index()
     {
-        $nsx = DB::table('nhasanxuat')->select('*');
+        $nsx = DB::collection('nhasanxuat');
         $nsx = $nsx->get();
-        $dt = DB::table('dienthoai')->select('*');
+        $dt = DB::collection('dienthoai');
         $dt = $dt->get();
-        return view('/home', compact('nsx', 'dt'));
+        return view('/home', compact('nsx','dt'));
     }
-    public function show($id)
-    {   
-        $nsx = DB::table('nhasanxuat')->select('*');
+    
+    public function show($slug)
+    {
+        $nsx = DB::collection('nhasanxuat');
         $nsx = $nsx->get();
-        $productDetail = DB::table('dienthoai')->where('idDT', '=', $id)->select('*');
+        $productDetail = DB::collection('dienthoai')->where('slug', '=', $slug);
         $productDetail = $productDetail->first();
         return view('/product-detail', compact('productDetail','nsx'));
     }
